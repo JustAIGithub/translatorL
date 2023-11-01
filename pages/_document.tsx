@@ -25,11 +25,19 @@ export default class MyDocument extends Document<DocumentProps> {
     return (
       <Html>
         <Head>
-          <meta charSet="utf-8" />
-          <meta
-            name="google-site-verification"
-            content="bjJSOEahdert-7mwVScrwTTUVR3nSe0bEj5YjevUNn0"
+          {/* Add the Google Analytics script tags here */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL2D4XJKXS"></script>
+          <script
+              dangerouslySetInnerHTML={{
+                __html: `
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'G-NL2D4XJKXS');
+			`,
+              }}
           />
+          <meta charSet="utf-8" />
           <style dangerouslySetInnerHTML={{ __html: css }} />
         </Head>
 
